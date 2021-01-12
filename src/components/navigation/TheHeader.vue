@@ -73,6 +73,9 @@ export default {
 
     p {
         height: 1rem;
+        padding: 0 5px;
+        font-weight: bold;
+        border-bottom: 2px solid black;
     }
     
     .dropdown {

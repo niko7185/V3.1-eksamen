@@ -100,8 +100,6 @@ export default {
             if (addedUser) {
                 newUser.id = addedUser.id;
                 this.logInUser(newUser);
-
-                this.$router.push("/home");
             }
 
         }

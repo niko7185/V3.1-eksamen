@@ -87,7 +87,6 @@ export default {
 
             if (user) {
                 this.logInUser(user);
-                this.$router.push("/home");
             }
 
         }

@@ -1,15 +1,22 @@
 <template>
   <TheHeader :user="currentUser"
              @logout="currentUser = null"/>
-  <router-view/>
+  <main>
+    <router-view/>
+  </main>
+  <footer>
+    <TheNav />
+  </footer>
 </template>
 
 <script>
-import TheHeader from './components/navigation/TheHeader.vue'
+import TheHeader from './components/navigation/TheHeader.vue';
+import TheNav from './components/navigation/TheNav.vue';
 
 export default {
   components: {
     TheHeader,
+    TheNav,
   },
   data() {
     return {
@@ -47,6 +54,7 @@ export default {
       if (user) {
         localStorage.setItem("user", JSON.stringify(user))
         this.currentUser = user;
+        this.$router.push("/home?update=true");
       }
 
     }
@@ -64,8 +72,24 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0px;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   
 }
+
+main {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+footer {
+  position:absolute;
+  width: 100%;
+  bottom: 0px;
+}
+
 </style>
