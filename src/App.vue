@@ -82,7 +82,7 @@ body {
 }
 
 main {
-  max-width: 80%;
+  max-width: 95%;
   margin: 0 auto;
 }
 
@@ -90,6 +90,13 @@ footer {
   position:absolute;
   width: 100%;
   bottom: 0px;
+}
+
+@media screen and (min-width: 800px) {
+  main {
+    max-width: 80%;
+    margin: 0 auto;
+  }
 }
 
 </style>
