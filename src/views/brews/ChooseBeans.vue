@@ -4,7 +4,7 @@
         <article>
             <base-selection v-for="(bean, index) in beans" :key="index" :index="index" :selectedIndex="selectedBean"
                             @select="selectionChance">
-                <svg id="infusion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.228 65.533" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.228 65.533" fill="currentColor">
                   <g id="Group_74" data-name="Group 74" transform="translate(-20.8 -4.544)">
                     <path id="Path_164" data-name="Path 164" d="M53.787,35.846l-3.08-.081a6.343,6.343,0,0,0-3.485-5.673,2.767,2.767,0,0,1-1.3-2.269h1.054a.486.486,0,0,0,0-.973H45.844V25.471h1.135a.486.486,0,0,0,0-.973H45.844V22.31a.812.812,0,0,0-.81-.81H26.392a.812.812,0,0,0-.81.81V24.5H24.69a.486.486,0,1,0,0,.973h.892v1.378H24.69a.486.486,0,0,0,0,.973h.892A2.846,2.846,0,0,1,24.2,30.091a6.455,6.455,0,0,0-3.4,5.673V66.887a6.416,6.416,0,0,0,6.4,6.4H44.3a6.416,6.416,0,0,0,6.4-6.4l.081-.243h2.918a6.33,6.33,0,0,0,6.322-6.322V42.167A6.261,6.261,0,0,0,53.787,35.846ZM27.2,23.2H44.3V24.58H27.2Zm0,2.269H44.3v1.378H27.2Zm31.2,34.851a4.618,4.618,0,0,1-4.62,4.62H50.869a1.84,1.84,0,0,0-1.783,1.945A4.791,4.791,0,0,1,44.3,71.669H27.2a4.791,4.791,0,0,1-4.782-4.782V35.765a4.673,4.673,0,0,1,2.594-4.215A4.362,4.362,0,0,0,27.2,27.822H44.3a4.441,4.441,0,0,0,2.188,3.647,4.778,4.778,0,0,1,2.675,4.3,1.8,1.8,0,0,0,1.783,1.783h2.918a4.618,4.618,0,0,1,4.62,4.62V60.322Z" transform="translate(0 -3.213)"></path>
                     <path id="Path_165" data-name="Path 165" d="M60.42,43.6H58.231A2.438,2.438,0,0,0,55.8,46.031V64.754a2.438,2.438,0,0,0,2.431,2.431H60.42a2.733,2.733,0,0,0,2.756-2.756V46.356A2.733,2.733,0,0,0,60.42,43.6Zm1.135,20.911a1.108,1.108,0,0,1-1.135,1.135H58.231a.812.812,0,0,1-.81-.81V46.113a.812.812,0,0,1,.81-.81H60.42a1.108,1.108,0,0,1,1.135,1.135Z" transform="translate(-6.633 -7.402)"></path>
@@ -18,24 +18,29 @@
             </base-selection>
         </article>
     </base-wrapper>
+    <confirm-button @click="submitBeans">Next</confirm-button>
 </template>
 
 <script>
-import BaseSelection from '../../components/UI/BaseSelection.vue';
 
 export default {
-    components: {
-        BaseSelection,
-    },
     data() {
         return {
-            beans: ["BEZA", "Arabica", "Robusta"],
+            beans: ["BEZA", "Arabica", "Robusta", "Liberica"],
             selectedBean: 0,
         };
     },
     methods: {
         selectionChance(index) {
             this.selectedBean = index;
+        },
+        submitBeans() {
+            this.$router.push({path: "/brews", query: 
+            { 
+                beans: this.beans[this.selectedBean],
+                datatype: "text",
+                name: "beans",
+            }});
         }
     }
 }
@@ -50,15 +55,17 @@ export default {
         margin: 10px 0px;
         display: flex;
     }
+    
 
     @media screen and (min-width: 630px) {
         article section {
             flex: 1;
-            margin: 0 10px;
+            margin: 10px;
         }
     
         article {
             display: flex;
+            flex-wrap: wrap;
         }
     }
 </style>

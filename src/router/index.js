@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/brews/Home.vue'
 import ChooseBeans from '../views/brews/ChooseBeans.vue'
+import ChooseRecipe from '../views/brews/ChooseRecipe.vue'
 import Brews from '../views/brews/Brews.vue'
 import Login from '../views/authentication/Login.vue'
 import Register from '../views/authentication/Register.vue'
@@ -23,7 +24,11 @@ const routes = [
       {
         path: "beans",
         component: ChooseBeans,
-      }
+      },
+      {
+        path: "recipe",
+        component: ChooseRecipe,
+      },
     ]
   },
   {

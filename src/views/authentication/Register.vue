@@ -25,7 +25,7 @@
             </div>
         </base-wrapper>
 
-        <confirm-button>Gem</confirm-button>
+        <confirm-button>Register</confirm-button>
     </form>
 </template>
 
