@@ -99,7 +99,7 @@ export default {
     props: {
         tool: {
             type: String,
-            required: true,
+            required: false,
         },
         title: {
             type: String,

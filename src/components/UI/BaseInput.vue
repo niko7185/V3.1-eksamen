@@ -2,7 +2,10 @@
 <template>
     <label :for="name">{{ label }}</label>
     <p class="error" v-if="errorMessage">{{ errorMessage }}</p>
-    <input :type="inputType" :placeholder="placeholder" :id="name" :class="{error: errorMessage }" v-model.trim="inputValue"/>
+    <input v-if="inputType !== 'number'" :type="inputType" :placeholder="placeholder"
+            :id="name" :class="{error: errorMessage }" v-model.trim="inputValue"/>
+    <input v-else :type="inputType" :placeholder="placeholder" 
+            :id="name" :class="{error: errorMessage }" v-model.number="inputValue"/>
 </template>
 
 <script>
@@ -27,6 +30,10 @@ export default {
         errorMessage: {
             type: String,
             required: true,
+        },
+        defaultValue: {
+            required: false,
+            type: null,
         }
     },
     emits: ["value-change"],
@@ -36,10 +43,22 @@ export default {
         };
     },
     watch: {
-        inputValue(newValue) {
+        inputValue(newValue, oldValue) {
+            
+            
+            if (this.defaultValue) {
+                this.$emit("value-change", newValue, oldValue, this.name);
 
-            this.$emit("value-change", newValue, this.name);
+            }
+            else {
+                this.$emit("value-change", newValue, this.name);
+            }
         },
+    },
+    created() {
+        if (this.defaultValue) {
+            this.inputValue = this.defaultValue;
+        }
     }
 }
 </script>

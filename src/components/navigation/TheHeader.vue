@@ -40,6 +40,7 @@ export default {
             localStorage.removeItem("user");
 
             this.$emit("logout");
+            this.$router.push("/home?logout=true");
         }
     },
     emits: ["logout"],

@@ -45,8 +45,6 @@ export default {
 
             const users = JSON.parse(localStorage.getItem("users"));
 
-            console.log(users);
-
             if (!users) {
                 for (let i = 0; i < 2; i++) {
                     this.errorMessages[i] = "Input is incorrect!";
@@ -82,8 +80,6 @@ export default {
 
                 return true;
             });
-
-            console.log(user);
 
             if (user) {
                 this.logInUser(user);

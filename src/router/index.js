@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/brews/Home.vue'
 import ChooseBeans from '../views/brews/ChooseBeans.vue'
 import ChooseRecipe from '../views/brews/ChooseRecipe.vue'
+import AdjustRecipe from '../views/brews/AdjustRecipe.vue'
+import BrewingGuide from '../views/brews/BrewingGuide.vue'
 import Brews from '../views/brews/Brews.vue'
 import Login from '../views/authentication/Login.vue'
 import Register from '../views/authentication/Register.vue'
@@ -29,7 +31,19 @@ const routes = [
         path: "recipe",
         component: ChooseRecipe,
       },
+      {
+        path: "adjust",
+        component: AdjustRecipe,
+      },
+      {
+        path: "guide",
+        component: BrewingGuide,
+      },
     ]
+  },
+  {
+    path: "/recipe:brewId",
+    component: BrewingGuide,
   },
   {
     path: "/login",
