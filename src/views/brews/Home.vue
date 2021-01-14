@@ -99,4 +99,8 @@ export default {
     color: black;
   }
 
+  h2 a {
+    text-decoration: underline;
+  }
+
 </style>

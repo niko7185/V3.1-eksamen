@@ -7,6 +7,7 @@ import BaseWrapper from './components/UI/BaseWrapper.vue'
 import ConfirmButton from './components/UI/ConfirmButton.vue'
 import BaseSelection from './components/UI/BaseSelection.vue';
 import RecipeDisplay from './components/display/RecipeDisplay.vue';
+import GuideDisplay from './components/display/GuideDisplay.vue';
 
 const app = createApp(App);
 
@@ -15,6 +16,7 @@ app.component("base-wrapper", BaseWrapper);
 app.component("confirm-button", ConfirmButton);
 app.component("base-selection", BaseSelection);
 app.component("recipe-display", RecipeDisplay);
+app.component("guide-display", GuideDisplay);
 
 app.use(router)
 

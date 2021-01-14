@@ -78,7 +78,7 @@ export default {
         this.recipe = this.getRecipe();
 
         if (!this.recipe) {
-            this.$router.push("/home");
+            this.$router.push("/brews/beans");
         }
     },
     inject: ["updateBrew", "getRecipe"],

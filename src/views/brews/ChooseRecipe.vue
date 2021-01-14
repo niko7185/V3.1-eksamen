@@ -25,8 +25,8 @@ export default {
             recipes: [
                 {
                     tool: "Cold Infusion",
-                    coffeeAmount: 113,
-                    water: 907,
+                    coffeeAmount: 63,
+                    water: 190,
                     grind: "Coarse",
                     time: "12hours",
                     guide: [

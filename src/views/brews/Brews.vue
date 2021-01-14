@@ -28,6 +28,8 @@ export default {
         saveBrew() {
 
             const user = JSON.parse(localStorage.getItem("user"));
+
+            const users = JSON.parse(localStorage.getItem("users"));
             
             user.brews.unshift(this.brew);
 
@@ -41,7 +43,17 @@ export default {
                             body: JSON.stringify({brews: user.brews}),
                         });
 
-            this.getUsers();
+            if (!users) {
+                this.getUsers();
+            }
+            else {
+                
+                const userIndex = users.findIndex(u => u.id === user.id);
+                
+                users[userIndex] = user;
+
+                localStorage.setItem("users", JSON.stringify(users));
+            }
 
             this.$router.push("/home");
 
